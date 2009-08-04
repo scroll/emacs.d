@@ -28,7 +28,7 @@
 (global-set-key (kbd "C--") 'text-scale-decrease)
 (global-set-key (kbd "C-0") 'global-font-lock-mode)
 (global-set-key [C-tab] 'bs-cycle-next)
-(global-set-key [C-S-tab] 'bs-cycle-previous)
+(global-set-key [C-S-iso-lefttab] 'bs-cycle-previous)
 
 (defun toggle-fullscreen ()
   (interactive)
