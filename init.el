@@ -112,7 +112,7 @@
 (autoload 'rsl-mode "rsl-mode" "RenderMan Shading Language editing mode" t)
 (autoload 'rib-mode "rib-mode" "RenderMan Interface Bytestream editing mode" t)
 
-(setq python-python-command "python3")
+;; (setq python-python-command "python2.5.1")
 (setq lua-default-application "lua5.1")
 
 (setq auto-mode-alist
