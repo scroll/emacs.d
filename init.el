@@ -131,6 +131,11 @@
                 ("\\.org$"  . org-mode))
               auto-mode-alist))
 
+;; Switch to *Python* after C-c C-c
+(defadvice python-send-buffer
+  (after advice-switch-to-python)
+  (python-switch-to-python t))
+
 (add-hook
  'text-mode-hook
  (lambda ()
