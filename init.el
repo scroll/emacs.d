@@ -26,6 +26,9 @@
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
+(global-set-key (kbd "C-0") 'global-font-lock-mode)
+(global-set-key [C-tab] 'bs-cycle-next)
+(global-set-key [C-S-tab] 'bs-cycle-previous)
 
 (defun toggle-fullscreen ()
   (interactive)
@@ -53,7 +56,7 @@
 (transient-mark-mode 1)
 (dynamic-completion-mode 1)
 (auto-compression-mode 1)
-(global-font-lock-mode 0)
+(global-font-lock-mode 1)
 (global-auto-revert-mode 1)
 
 (fset 'yes-or-no-p 'y-or-n-p)
