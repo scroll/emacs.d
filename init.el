@@ -131,11 +131,6 @@
                 ("\\.org$"  . org-mode))
               auto-mode-alist))
 
-;; Respect global-font-lock, please.
-(defun font-lock-off () (font-lock-mode 0))
-(add-hook 'python-mode-hook     'font-lock-off)
-(add-hook 'whitespace-mode-hook 'font-lock-off)
-
 (add-hook
  'text-mode-hook
  (lambda ()
