@@ -1,3 +1,4 @@
+
 (defmacro on-linux (&rest body)
   (when (string-match "linux" (prin1-to-string system-type))
     `(progn ,@body)))
@@ -37,6 +38,39 @@
 
 (global-set-key (kbd "<f11>") 'toggle-fullscreen)
 
+(defun expand-region-to-whole-lines ()
+  "Expand the region to make it encompass whole lines.
+If the region is not active, activate the current line."
+  (if (not mark-active)
+      ;; Create region from current line
+      (progn
+        (beginning-of-line)
+        (set-mark (point))
+        (end-of-line))
+    ;; The mark is active, expand region
+    (let ((beg (region-beginning))
+          (end (region-end)))
+      (goto-char beg)
+      (beginning-of-line)
+      (set-mark (point))
+      (goto-char end)
+      (unless (bolp) (end-of-line)))))
+
+(defun my-increase-left-margin ()
+  "Increase left margin in region after expanding it to whole lines."
+  (interactive)
+  (let (deactivate-mark)
+    (expand-region-to-whole-lines)
+    (increase-left-margin (region-beginning) (region-end) nil)))
+
+(defun my-decrease-left-margin ()
+  "Decrease left margin in region after expanding it to whole lines."
+  (interactive)
+  (let (deactivate-mark)
+    (expand-region-to-whole-lines)
+    (decrease-left-margin (region-beginning) (region-end) nil)))
+
+
 (defun setup-frame (frame)
   (require 'maxframe)
   (select-frame frame)
@@ -61,6 +95,7 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq inhibit-startup-message t)
+(setq tab-always-indent 'complete)
 (setq visible-bell t)
 (setq bell-volume 0)
 (setq scroll-step 1)
@@ -71,6 +106,7 @@
 (setq x-select-enable-clipboard t)
 (setq dired-recursive-deletes 'top)
 (setq ido-enable-flex-matching t)
+(setq parens-require-spaces nil)
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
