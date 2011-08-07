@@ -1,4 +1,3 @@
-
 (defmacro on-linux (&rest body)
   (when (string-match "linux" (prin1-to-string system-type))
     `(progn ,@body)))
@@ -21,7 +20,6 @@
       (append load-path
               '("~/.emacs.d"
                 "~/.emacs.d/progmodes"
-                "~/.emacs.d/progmodes/haskell-mode-2.4"
                 "~/.emacs.d/color-theme-6.6.0")))
 
 (global-set-key (kbd "C-+") 'text-scale-increase)
@@ -140,7 +138,7 @@ If the region is not active, activate the current line."
 
 (require 'htmlize)
 
-(load "haskell-site-file")
+;; (load "haskell-site-file")
 (autoload 'cg-mode  "cg-mode"  "Cg editing mode." t)
 (autoload 'mel-mode "mel-mode" "Mel editting mode." t)
 (autoload 'lua-mode "lua-mode" "Lua editting mode." t)
