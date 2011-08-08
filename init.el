@@ -26,6 +26,8 @@
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 (global-set-key (kbd "C-0") 'global-font-lock-mode)
+(global-set-key (kbd "C-.") 'my-increase-left-margin)
+(global-set-key (kbd "C-,") 'my-decrease-left-margin)
 (global-set-key [C-tab] 'bs-cycle-next)
 (global-set-key [C-S-iso-lefttab] 'bs-cycle-previous)
 
