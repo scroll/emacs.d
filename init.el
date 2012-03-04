@@ -22,6 +22,11 @@
                 "~/.emacs.d/progmodes"
                 "~/.emacs.d/color-theme-6.6.0")))
 
+(add-to-list 'load-path
+              "~/.emacs.d/yasnippet")
+(require 'yasnippet)
+(yas/global-mode 1)
+
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
@@ -139,8 +144,21 @@ If the region is not active, activate the current line."
 (color-theme-zenburn)
 
 (require 'htmlize)
+(require 'zencoding-mode)
+
+;;iPython
+;; (autoload 'python-mode "python-mode" "Python Mode." t)
+;; (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+;; (add-to-list 'interpreter-mode-alist '("python" . python-mode))
+
+
+;; (require 'ipython)
+;; (setq py-python-command '("/usr/bin/ipython"))
+;; (setq py-python-command-args '("-pylab" "-colors" "LightBG"))
 
 ;; (load "haskell-site-file")
+
+
 (autoload 'cg-mode  "cg-mode"  "Cg editing mode." t)
 (autoload 'mel-mode "mel-mode" "Mel editting mode." t)
 (autoload 'lua-mode "lua-mode" "Lua editting mode." t)
@@ -172,12 +190,12 @@ If the region is not active, activate the current line."
   (after advice-switch-to-python)
   (python-switch-to-python t))
 
-(add-hook
- 'text-mode-hook
- (lambda ()
-   (flyspell-mode 1)
-   (auto-fill-mode 1)
-   (setq fill-column 80)))
+;; (add-hook
+;;  'text-mode-hook
+;;  (lambda ()
+;;    (flyspell-mode 1)
+;;    (auto-fill-mode 1)
+;;    (setq fill-column 80)))
 
 (add-hook
  'shell-mode-hook
@@ -241,6 +259,11 @@ If the region is not active, activate the current line."
  'lua-mode-hook
  (lambda ()
    (setq lua-indent-level 4)))
+
+(add-hook
+ 'sgml-mode-hook
+ 'zencoding-mode) 
+
 
 ;; Cygwin setup
 (on-windows
