@@ -20,10 +20,11 @@
       (append load-path
               '("~/.emacs.d"
                 "~/.emacs.d/progmodes"
-                "~/.emacs.d/color-theme-6.6.0")))
+                "~/.emacs.d/color-theme-6.6.0"
+                "~/.emacs.d/js2-mode"
+                "~/.emacs.d/yasnippet")))
 
-(add-to-list 'load-path
-              "~/.emacs.d/yasnippet")
+
 (require 'yasnippet)
 (yas/global-mode 1)
 
@@ -165,6 +166,7 @@ If the region is not active, activate the current line."
 (autoload 'mma-mode "mma.el"   "Mathematica package file mode" t)
 (autoload 'rsl-mode "rsl-mode" "RenderMan Shading Language editing mode" t)
 (autoload 'rib-mode "rib-mode" "RenderMan Interface Bytestream editing mode" t)
+(autoload 'js2-mode "js2-mode" "JavaScript editing mode." t)
 
 ;; (setq python-python-command "python2.5.1")
 (setq lua-default-application "lua5.1")
@@ -182,7 +184,8 @@ If the region is not active, activate the current line."
                 ("\\.hs$"   . haskell-mode)
                 ("\\.lhs$"  . literate-haskell-mode)
                 ("\\.m$"    . mma-mode)
-                ("\\.org$"  . org-mode))
+                ("\\.org$"  . org-mode)
+                ("\\.js$"  . js2-mode))
               auto-mode-alist))
 
 ;; Switch to *Python* after C-c C-c
