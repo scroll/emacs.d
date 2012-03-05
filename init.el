@@ -21,7 +21,6 @@
               '("~/.emacs.d"
                 "~/.emacs.d/progmodes"
                 "~/.emacs.d/color-theme-6.6.0"
-                "~/.emacs.d/js2-mode"
                 "~/.emacs.d/yasnippet")))
 
 
