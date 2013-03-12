@@ -79,8 +79,8 @@ If the region is not active, activate the current line."
 (defun setup-frame (frame)
   (require 'maxframe)
   (select-frame frame)
-  (on-linux (set-frame-parameter frame 'font-backend '(xft x))
-            (set-frame-font "Inconsolata 19")) ; "Bitstream Vera Sans Mono 15"
+  (on-linux (set-frame-parameter frame 'font-backend '(xft x)))
+            ;; (set-frame-font "Inconsolata 17")) ; "Bitstream Vera Sans Mono 15"
   (on-windows (set-frame-font "-*-Consolas-normal-r-*-*-22-*-*-*-c-*-*-iso8859-1"))
   (maximize-frame))
 
@@ -117,7 +117,7 @@ If the region is not active, activate the current line."
 (put 'downcase-region 'disabled nil)
 
 (setq default-major-mode 'text-mode)
-(setq-default tab-width 8)
+(setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq-default ispell-program-name "aspell")
 
@@ -166,6 +166,15 @@ If the region is not active, activate the current line."
 (autoload 'rsl-mode "rsl-mode" "RenderMan Shading Language editing mode" t)
 (autoload 'rib-mode "rib-mode" "RenderMan Interface Bytestream editing mode" t)
 (autoload 'js2-mode "js2-mode" "JavaScript editing mode." t)
+
+(require 'multi-web-mode)
+   (setq mweb-default-major-mode 'html-mode)
+   (setq mweb-tags '((php-mode "<\\?php\\|<\\? \\|<\\?=" "\\?>")
+                     (js2-mode "<script[^>]*>" "</script>")
+                     (js2-mode "<script +\\(type=\"text/javascript\"\\|language=\"javascript\"\\)[^>]*>" "</script>")
+                     (css-mode "<style +type=\"text/css\"[^>]*>" "</style>")))
+   (setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
+   (multi-web-global-mode 1)
 
 ;; (setq python-python-command "python2.5.1")
 (setq lua-default-application "lua5.1")
